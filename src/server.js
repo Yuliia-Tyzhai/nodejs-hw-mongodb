@@ -13,11 +13,13 @@ export const setupServer = () => {
 const app = express();
 
 app.use(cors());
-app.use(pino({
-    transport: {
-        target: "pino-pretty"
-    }
-}));
+app.use(
+    pino({
+      transport: {
+        target: 'pino-pretty',
+      },
+    }),
+  );
 
 app.use(contactsRouter);
 
