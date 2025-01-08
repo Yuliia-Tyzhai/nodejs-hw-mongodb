@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { isValidId } from '../middlewares/isValidId.js';
+import { authenticate } from '../middlewares/authenticate.js';
 
 import * as contactsControllers from '../controllers/contacts.js';
 
@@ -11,6 +12,8 @@ import { validateBody } from '../middlewares/validateBody.js';
 import { contactAddSchema, contactUpdateSchema } from '../validation/contacts.js';
 
 const router = Router();
+
+router.use(authenticate);
 
 router.get('/contacts', ctrlWrapper(contactsControllers.getContactsController));
 
