@@ -6,7 +6,7 @@ import { parsePaginationParams } from '../utils/parsePaginationParams.js';
 
 import { parseSortParams } from '../utils/parseSortParams.js';
 
-import { parseContactFilterParams } from "../utils/filters/parseContactFilterParams.js"
+import { parseContactFilterParams } from "../utils/filters/parseContactFilterParams.js";
 
 
 export const getContactsController = async (req, res) => {
@@ -40,7 +40,7 @@ export const getContactByIdController = async (req, res) => {
 
   res.json({
     status: 200,
-    message: `Successfully found contact with id ${contactId}`,
+    message: `Successfully found contact with id ${_id}`,
     data: contact,
   });
 };
