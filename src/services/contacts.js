@@ -18,9 +18,6 @@ export const getAllContacts = async ({page = 1, perPage = 10, sortBy = "_id", so
 
   return {
     data: contacts,
-    page,
-    perPage,
-    totalItems,
     ...paginationData,
   };
 };

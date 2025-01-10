@@ -1,8 +1,9 @@
-export const parseContactFilterParams = query => {
+export const parseContactFilterParams = (query) => {
     const filter = {};
-    
-    if (query.userId) { 
-        filter.userId = query.userId; 
-    } 
+
+    if (query.userId) {
+      filter.userId = query.userId;
+    }
+  
     return filter;
-};
+  };

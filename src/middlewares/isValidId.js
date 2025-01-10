@@ -7,4 +7,4 @@ export const isValidId = (req, res, next) => {
         return next(createHttpError(404, `${contactId} not valid id`));
     }
     next();
-};
+}; 
