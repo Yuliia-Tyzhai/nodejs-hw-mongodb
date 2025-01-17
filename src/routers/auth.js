@@ -6,7 +6,7 @@ import { ctrlWrapper } from "../utils/ctrlWrapper.js";
 
 import { validateBody } from "../middlewares/validateBody.js";
 
-import { authRegisterSchema, authLoginSchema } from "../validation/auth.js";
+import { authRegisterSchema, authLoginSchema, authSendResetEmailSchema, authResetPwdSchema } from "../validation/auth.js";
 
 const authRouter = Router();
 
@@ -17,5 +17,9 @@ authRouter.post("/login", validateBody(authLoginSchema), ctrlWrapper(authControl
 authRouter.post("/refresh", ctrlWrapper(authController.refreshTokenController));
 
 authRouter.post("/logout", ctrlWrapper(authController.logoutController));
+
+authRouter.post("/send-reset-email", validateBody(authSendResetEmailSchema), ctrlWrapper(authController.sendResetEmailController));
+
+authRouter.post("/reset-pwd", validateBody(authResetPwdSchema), ctrlWrapper(authController.resetPwdController));
 
 export default authRouter;

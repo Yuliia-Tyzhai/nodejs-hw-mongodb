@@ -17,6 +17,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("upload"));
 app.use(cookieParser());
 app.use(logger);
 
