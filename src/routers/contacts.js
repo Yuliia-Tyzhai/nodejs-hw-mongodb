@@ -16,11 +16,11 @@ const contactsRouter = Router();
 
 contactsRouter.use(authenticate);
 
-contactsRouter.get('/contacts', ctrlWrapper(contactsControllers.getContactsController));
+contactsRouter.get('/', ctrlWrapper(contactsControllers.getContactsController));
 
 contactsRouter.get('/contacts/:contactId', isValidId, ctrlWrapper(contactsControllers.getContactByIdController));
 
-contactsRouter.post('/contacts', upload.single("photo"), validateBody(contactAddSchema), ctrlWrapper(contactsControllers.addContactController));
+contactsRouter.post('/', upload.single("photo"), validateBody(contactAddSchema), ctrlWrapper(contactsControllers.addContactController));
 
 contactsRouter.patch('/contacts/:contactId', upload.single('photo'), isValidId, validateBody(contactUpdateSchema), ctrlWrapper(contactsControllers.patchContactController));
 
