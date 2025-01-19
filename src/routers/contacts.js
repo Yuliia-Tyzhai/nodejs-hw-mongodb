@@ -26,4 +26,4 @@ contactsRouter.patch('/contacts/:contactId', upload.single('photo'), isValidId, 
 
 contactsRouter.delete('/contacts/:contactId', isValidId, ctrlWrapper(contactsControllers.deleteContactController));
 
-export default router;
+export default contactsRouter;
