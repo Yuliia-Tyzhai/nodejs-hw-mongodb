@@ -12,7 +12,7 @@ tags:
     description: Operations about contacts.
 servers:
   - url: http://localhost:3000
-  - url: http://example.com
+  - url: https://contacts-app-swagger-8ve0.onrender.com
 paths:
   /contacts:
     get:
