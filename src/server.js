@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(logger);
 
 app.use("/auth", authRouter);
-app.use("/contacts", contactsRouter);
+app.use(contactsRouter);
 app.use("/api-docs", swaggerDocs());
 
 app.use(notFoundHandler);
