@@ -1,0 +1,71 @@
+tags:
+  - Contacts
+summary: Update a contact
+operationId: patchContact
+description: 'Update a contact with the provided payload. Only fields in the request body will be updated.'
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: contactId
+    required: true
+    schema:
+      type: string
+      example: '65ca67e7ae7f10c88b598384'
+    description: ID of the contact to update
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          name:
+            description: Name of contact
+            type: string
+            example: 'John Doe'
+          phoneNumber:
+            description: Phone number of the contact
+            type: string
+            example: '+380698785983'
+          email:
+            description: Contact's email address
+            type: string
+            example: 'Doe@example.com'
+          isFavourite:
+            description: Whether the contact is marked as favourite
+            type: boolean
+            example: true
+          contactType:
+            description: Type of the contact
+            type: string
+            enum: ['personal', 'home', 'work']
+            example: home
+          photo:
+            description: Link to contact's photo
+            type: string
+            format: binary
+responses:
+  '200':
+    description: Successfully updated a contact
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully updated a contact!
+            data:
+              type: object
+              $ref: ../../../components/schemas/updateContact.yaml
+  '400':
+    $ref: ../../../components/responses/400.yaml
+  '404':
+    $ref: ../../../components/responses/404.yaml

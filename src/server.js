@@ -8,6 +8,7 @@ import contactsRouter from './routers/contacts.js';
 import { logger } from './middlewares/logger.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
 import { getEnvVar } from './utils/getEnvVar.js';
 
@@ -22,7 +23,8 @@ app.use(cookieParser());
 app.use(logger);
 
 app.use("/auth", authRouter);
-app.use(contactsRouter);
+app.use("/contacts", contactsRouter);
+app.use("/api-docs", swaggerDocs());
 
 app.use(notFoundHandler);
 app.use(errorHandler);
